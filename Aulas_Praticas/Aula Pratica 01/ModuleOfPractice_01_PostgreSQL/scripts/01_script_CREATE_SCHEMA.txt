@@ -21,10 +21,10 @@
 -------------------------------
 -- create the relational schema
 -------------------------------
-DROP TABLE IF EXISTS R2;
+DROP TABLE IF EXISTS R4;
 DROP TABLE IF EXISTS R3;
 DROP TABLE IF EXISTS R1;
-DROP TABLE IF EXISTS R4;
+DROP TABLE IF EXISTS R2;
 --------------------------------
 
 

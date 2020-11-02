@@ -1,6 +1,7 @@
 @ECHO OFF
 :: [PTS: ADAPT]
 set psqlPath="D:\PostgresSQL\bin"
+# set psqlPath="C:\Program Files\PostgreSQL\10\bin"
 
 
 :: Database, Username and Port
@@ -18,5 +19,3 @@ SET portNumber=5432
 
 :: uncomment next line in case there is a warning regarding the "code page"
 :: cmd.exe /c chcp 1252
-
-

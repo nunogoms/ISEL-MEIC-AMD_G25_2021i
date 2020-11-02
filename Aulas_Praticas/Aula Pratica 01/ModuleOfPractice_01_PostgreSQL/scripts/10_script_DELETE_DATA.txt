@@ -19,8 +19,8 @@
 --===============
 -- drop data
 --===============
--- DELETE FROM ...
--- ;
 
--- DELETE FROM ...
--- ;
+DELETE FROM R3;
+DELETE FROM R4;
+DELETE FROM R2;
+DELETE FROM R1;

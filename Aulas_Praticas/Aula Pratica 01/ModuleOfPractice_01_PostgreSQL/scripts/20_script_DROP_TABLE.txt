@@ -23,16 +23,24 @@ ALTER TABLE R2
 DROP CONSTRAINT fk1_R2
 ;
 
--- ALTER TABLE ...
--- DROP CONSTRAINT ...
--- ;
+ALTER TABLE R1
+DROP CONSTRAINT pk_r1;
 
+ALTER TABLE R2
+DROP CONSTRAINT pk_r2;
 
+ALTER TABLE R3
+DROP CONSTRAINT pk_r3;
+
+ALTER TABLE R4
+DROP CONSTRAINT pk_r4;
 
 --==============================
 -- drop tables
 --==============================
 
--- DROP TABLE ...
--- ;
+DROP TABLE R3;
+DROP TABLE R4;
+DROP TABLE R2;
+DROP TABLE R1;
 
