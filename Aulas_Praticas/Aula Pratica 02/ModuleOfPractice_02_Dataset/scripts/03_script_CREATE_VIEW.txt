@@ -45,15 +45,6 @@ DROP VIEW IF EXISTS v2_attrType;
 	LEFT JOIN R3 as table3 ON table3.c1_r1 = table1.c1
    WHERE table1.c1 < 3;
 
-
-
--- after completing the previous code uncomment the following 2 lines
--- SELECT VC1, VC2, VC3
--- FROM v1
--- ;
-
-
-
 --==========================
 -- [OUT] The expected output
 --==========================
@@ -65,6 +56,42 @@ DROP VIEW IF EXISTS v2_attrType;
 --| 222 |   2 | 2012-03-31
 --|(3 rows)
 
+
+-- after completing the previous code uncomment the following 2 lines
+-- SELECT VC1, VC2, VC3
+-- FROM v1
+-- ;
+
+
+-- create statement from domainv1_domain
+
+CREATE View v1_domain AS
+   SELECT 
+   varchar(8) '000' AS VC1,
+   integer '0' AS VC2,
+   date '2020-04-04' AS VC3;
+			
+SELECT * FROM v1_domain;
+
+-- 3C) SELECT v1_domain with v1, and v1_domain being always on top
+
+   SELECT * FROM v1_domain
+   UNION
+   SELECT * FROM v1;
+
+--3D) create the view called "v1_dataset"
+
+   CREATE VIEW v1_dataset( VC1, VC2, VC3 ) AS
+   SELECT *, 1 AS SEQ FROM v1_domain
+   UNION
+   SELECT *, 2 AS SEQ FROM v1
+   ORDER BY SEQ;
+   
+   SELECT * FROM v1_dataset
+
+--3E) populating the view called "v1_dataset" with additional tupples and notes on the behaviour
+   
+	
 
 
 
