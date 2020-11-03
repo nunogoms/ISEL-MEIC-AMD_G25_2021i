@@ -58,12 +58,11 @@ DROP VIEW IF EXISTS v2_attrType;
 
 
 -- after completing the previous code uncomment the following 2 lines
--- SELECT VC1, VC2, VC3
--- FROM v1
--- ;
+ 	SELECT VC1, VC2, VC3
+  	FROM v1;
 
 
--- create statement from domainv1_domain
+-- create statement from v1_domain
 
 CREATE View v1_domain AS
    SELECT 
@@ -92,8 +91,6 @@ SELECT * FROM v1_domain;
 --3E) populating the view called "v1_dataset" with additional tupples and notes on the behaviour
    
 	
-
-
 
 -- Follow the "practiceGuide.pdf" until arriving at this goal:
 -- create the "dataset view" compatible with the Orange "3-Row-Header" format
