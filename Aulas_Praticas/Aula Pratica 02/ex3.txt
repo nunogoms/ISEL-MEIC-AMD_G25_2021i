@@ -9,9 +9,10 @@ SELECT * FROM v1_domain;
 
 -- 3C) SELECT v1_domain with v1, and v1_domain being always on top
 
-   SELECT * FROM v1_domain
+   SELECT *, 1 AS SEQ FROM v1_domain
    UNION
-   SELECT * FROM v1;
+   SELECT *, 2 AS SEQ FROM v1
+   ORDER BY SEQ;
 
 --3D) create the view called "v1_dataset"
 
