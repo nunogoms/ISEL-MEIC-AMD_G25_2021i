@@ -39,10 +39,8 @@
 -- d01_postgresql-9.6-A4.pdf, page 1402, or
 -- http://www.postgresql.org/docs/9.6/static/sql-copy.html
 --==============================
--- COPY ...
-;
 
-
+   COPY (SELECT * FROM v1) TO '(Remove parathenses and insert path here)\2b_i_result.csv' WITH (FORMAT CSV, FORCE_QUOTE *, DELIMITER ';', HEADER);
 
 --==============================
 -- a different solution using the \COPY psql statement
@@ -56,7 +54,5 @@
 -- d02_psql_withPostgreSQL.pdf, or
 -- http://www.postgresql.org/docs/9.6/static/app-psql.html
 --==============================
--- \COPY ...
-;
-
+  \COPY (SELECT * FROM v1) TO 'C:\Users\Madrinho\Desktop\result.csv' WITH (FORMAT CSV, FORCE_QUOTE *, DELIMITER ';', HEADER);
 
