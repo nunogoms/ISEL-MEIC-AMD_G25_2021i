@@ -43,6 +43,11 @@ INSERT INTO r1( c1, c2, c3 )
 VALUES ( 4, 'aaa444', 'bbb444' )
 ;
 
+INSERT INTO r1( c1, c2, c3 )
+VALUES ( 6, 'aaa666', 'bbb666' )
+;
+
+
 
 
 -- r2
@@ -56,6 +61,14 @@ VALUES ( '222', 2, 'xxx222', 'yyy222' );
 
 INSERT INTO r2( c1, c1_r1, c2, c3 )
 VALUES ( '333', 3, 'xxx333', 'yyy333' );
+;
+
+INSERT INTO r2( c1, c1_r1, c2, c3 )
+VALUES ( '100', 4, 'xxx100', 'yyy100' );
+;
+
+INSERT INTO r2( c1, c1_r1, c2, c3 )
+VALUES ( '200', 6, 'xxx200', 'yyy200' );
 ;
 
 
@@ -73,6 +86,14 @@ INSERT INTO r4( c1 )
 VALUES ( 30 );
 ;
 
+INSERT INTO r4( c1 )
+VALUES ( 40 );
+;
+
+INSERT INTO r4( c1 )
+VALUES ( 50 );
+;
+
 
 
 -- r3
@@ -88,5 +109,12 @@ INSERT INTO R3( C1_R1, C1_R4, C1 )
 VALUES( 2, 20, '2012-3-31' )
 ;
 
+INSERT INTO R3( C1_R1, C1_R4, C1 )
+VALUES( 6, 30, '2004-06-31' )
+;
+
+INSERT INTO R3( C1_R1, C1_R4, C1 )
+VALUES( 4, 40, '2019-5-13' )
+;
 
 

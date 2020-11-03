@@ -5,7 +5,7 @@ CREATE View v1_domain AS
    integer '0' AS VC2,
    date '2020-04-04' AS VC3;
 			
-SELECT * FROM v1_domain;
+-- SELECT * FROM v1_domain;
 
 -- 3C) SELECT v1_domain with v1, and v1_domain being always on top
 
@@ -22,12 +22,8 @@ SELECT * FROM v1_domain;
    SELECT *, 2 AS SEQ FROM v1
    ORDER BY SEQ;
    
-   SELECT * FROM v1_dataset
+-- SELECT * FROM v1_dataset
 
 --3E) populating the view called "v1_dataset" with additional tupples and notes on the behaviour
    
-   INSERT INTO v1 (VC1,VC2,VC3) values
-   ('333','3','2019-03-02'),
-   ('666','13','1997-12-25'),
-   ('17','24','2000-06-06'),
-   ('59','14','2004-06-30');
+-- Inserted on the file 02_Populate_schema
