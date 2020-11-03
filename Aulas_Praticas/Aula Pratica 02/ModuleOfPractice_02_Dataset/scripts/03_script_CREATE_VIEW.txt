@@ -61,41 +61,13 @@ DROP VIEW IF EXISTS v2_attrType;
  	SELECT VC1, VC2, VC3
   	FROM v1;
 
-
--- create statement from v1_domain
-
-CREATE View v1_domain AS
-   SELECT 
-   varchar(8) '000' AS VC1,
-   integer '0' AS VC2,
-   date '2020-04-04' AS VC3;
-			
-SELECT * FROM v1_domain;
-
--- 3C) SELECT v1_domain with v1, and v1_domain being always on top
-
-   SELECT * FROM v1_domain
-   UNION
-   SELECT * FROM v1;
-
---3D) create the view called "v1_dataset"
-
-   CREATE VIEW v1_dataset( VC1, VC2, VC3 ) AS
-   SELECT *, 1 AS SEQ FROM v1_domain
-   UNION
-   SELECT *, 2 AS SEQ FROM v1
-   ORDER BY SEQ;
-   
-   SELECT * FROM v1_dataset
-
---3E) populating the view called "v1_dataset" with additional tupples and notes on the behaviour
-   
-	
-
 -- Follow the "practiceGuide.pdf" until arriving at this goal:
 -- create the "dataset view" compatible with the Orange "3-Row-Header" format
 -- CREATE VIEW v1_dataset( my_order, VC1, VC2, VC3 ) AS
 -- ;
+-- create statement from domainv1_domain
+
+
 
 
 
