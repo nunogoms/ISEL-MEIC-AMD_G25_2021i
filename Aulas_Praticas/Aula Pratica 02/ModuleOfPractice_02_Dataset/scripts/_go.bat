@@ -1,6 +1,6 @@
 @ECHO OFF
 :: [PTS: ADAPT]
-set psqlPath="C:\Applications\PostgreSQL\10\bin"
+set psqlPath="C:\Program Files\PostgreSQL\10\bin"
 
 
 :: Database, Username and Port
