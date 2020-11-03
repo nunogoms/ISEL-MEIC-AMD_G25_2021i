@@ -68,27 +68,27 @@ DROP VIEW IF EXISTS v2_attrType;
 -- create statement from domainv1_domain
    
    CREATE View v1_domain AS
-   SELECT 
-   varchar(8) '000' AS VC1,
-   integer '0' AS VC2,
-   date '2020-04-04' AS VC3;
+     SELECT 
+      varchar(8) '000' AS VC1,
+      integer '0' AS VC2,
+      date '2020-04-04' AS VC3;
 			
 -- SELECT * FROM v1_domain;
 
 -- 3C) SELECT v1_domain with v1, and v1_domain being always on top
 
    SELECT *, 1 AS SEQ FROM v1_domain
-   UNION
-   SELECT *, 2 AS SEQ FROM v1
-   ORDER BY SEQ;
+     UNION
+      SELECT *, 2 AS SEQ FROM v1
+       ORDER BY SEQ;
 
 --3D) create the view called "v1_dataset"
 
    CREATE VIEW v1_dataset( VC1, VC2, VC3 ) AS
-   SELECT *, 1 AS SEQ FROM v1_domain
-   UNION
-   SELECT *, 2 AS SEQ FROM v1
-   ORDER BY SEQ;
+      SELECT *, 1 AS SEQ FROM v1_domain
+        UNION
+         SELECT *, 2 AS SEQ FROM v1
+          ORDER BY SEQ;
    
 -- SELECT * FROM v1_dataset
 
@@ -97,6 +97,44 @@ DROP VIEW IF EXISTS v2_attrType;
 -- Inserted on the file 02_Populate_schema
 
 
+--4C) Implementation of the view with a single tuple line that indicates the "class" attribute
+
+	CREATE View v1_class AS
+   	    SELECT 
+               varchar '' AS VC1,
+   	       varchar 'class' AS VC2,
+               varchar '' AS VC3;
+
+--	SELECT * FROM v1_class;
+
+
+--4D) 3-Row-Header Select Statement
+
+	SELECT CAST( VC1 AS VARCHAR) ,CAST(VC2 AS VARCHAR),CAST(VC3 AS VARCHAR) FROM v1_domain
+   	 UNION
+   	   SELECT VC1,VC2,VC3 FROM v1_class
+             UNION
+               SELECT CAST( VC1 AS VARCHAR) ,CAST(VC2 AS VARCHAR),CAST(VC3 AS VARCHAR) FROM v1;
+
+
+--4E&4F) Rebuild of v1_dataset and check of the results
+
+	DROP VIEW IF EXISTS v1_dataset;
+	
+	CREATE VIEW v1_dataset (VC1,VC2,VC3) AS
+    	   SELECT VC1,VC2,VC3 FROM (
+             SELECT VC1,VC2,VC3, 2 AS SEQ FROM v1_class
+              UNION
+                 SELECT  varchar 'discrete' AS VC1,
+                   varchar 'discrete' AS VC2,
+                   varchar 'discrete' AS VC3,
+                   1 AS SEQ
+              UNION
+                SELECT CAST( VC1 AS VARCHAR) ,CAST(VC2 AS VARCHAR),CAST(VC3 AS VARCHAR), 4 AS SEQ FROM v1
+              ORDER BY SEQ) 
+          AS editedView;
+
+    --    SELECT * FROM v1_dataset;
 
 -- Follow the "practiceGuide.pdf" until arriving at this goal:
 -- create the "dataset view" compatible with the Orange "Header-with-Attribute-Type" format
