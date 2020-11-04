@@ -1,3 +1,0 @@
-- 03_script_CREATE_VIEW
-	- Contem todo o exercicio 3.
-- 30_script_EXPORT_DATA
