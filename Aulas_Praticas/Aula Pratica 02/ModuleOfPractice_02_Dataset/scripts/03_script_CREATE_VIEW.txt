@@ -139,7 +139,18 @@ DROP VIEW IF EXISTS v2_attrType;
 -- Follow the "practiceGuide.pdf" until arriving at this goal:
 -- create the "dataset view" compatible with the Orange "Header-with-Attribute-Type" format
 -- CREATE VIEW v2_dataset( my_order, VC1, VC2, VC3 ) AS
--- ;
 
+-- Exercise 5 - We did the copy here too, because the copy made in other exercises did not use tab('\t') as a delimiter
+-- and to come up with this solution, we had to make a new script. The final result is the same as the file "Header-with-Attribute-Type".
+-- The result is presented in accordance to the "orange data mining" input format.
 
+   DROP VIEW IF EXISTS v2_dataset;
+
+   CREATE VIEW v2_dataset( "D#vc1", "D#vc2" , "Dc#vc3"  ) AS
+       SELECT CAST( VC1 AS VARCHAR) ,CAST(VC2 AS VARCHAR),CAST(VC3 AS VARCHAR)FROM v1
+       ORDER BY VC1 DESC;
+
+-- SELECT * FROM v2_dataset;
+
+-- COPY (SELECT * FROM v2_dataset) TO '(Remove parathenses and insert path here)\5_result.txt' WITH (FORMAT CSV, DELIMITER E'\t', HEADER);   
 
