@@ -30,7 +30,7 @@ import Orange as DM
 #_______________________________________________________________________________
 # read a "dataset"
 # the file name (that can be passed in the command line)
-fileName = "./_dataset/lenses.tab"
+fileName = ".././_dataset/lenses.tab"
 #fileName = "./_dataset/adult_sample"
 if len( sys.argv ) > 1: fileName = sys.argv[ 1 ]
 
