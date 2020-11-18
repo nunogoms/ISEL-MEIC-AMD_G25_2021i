@@ -39,9 +39,6 @@ try:
 except:
    my_print( "--->>> error - can not open the file: %s" % fileName )
    exit()
-
-
-
 #_______________________________________________________________________________
 # variables: name (type = discrete | continuous): [value1, value2, ...]
 # variables, in Orange, refer to features or class
