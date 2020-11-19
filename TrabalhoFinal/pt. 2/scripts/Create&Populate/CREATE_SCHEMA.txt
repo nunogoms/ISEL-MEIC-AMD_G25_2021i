@@ -1,0 +1,86 @@
+--=============
+-- Ligação à BD
+--=============
+\set dataBase db_project
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+
+DROP TABLE IF EXISTS Patient CASCADE;
+DROP TABLE IF EXISTS Disease CASCADE;
+DROP TABLE IF EXISTS Doctor CASCADE;
+DROP TABLE IF EXISTS Lenses CASCADE;
+DROP TABLE IF EXISTS Evaluation CASCADE;
+DROP TABLE IF EXISTS Diagnosis CASCADE;
+
+----------------------- SCHEMA CREATION ------------------------------
+
+CREATE TABLE Patient (
+	person_id int NOT NULL,
+	patient_name varchar NOT NULL,
+	birthdate date NOT NULL
+);
+
+CREATE TABLE Disease (
+	disease_name varchar NOT NULL
+);
+
+CREATE TABLE Doctor (
+	person_id int NOT NULL,
+	birthdate date NOT NULL,
+	doctor_name varchar NOT NULL,
+	internal_id int UNIQUE NOT NULL
+);
+
+CREATE TABLE Lenses (
+	lens_type varchar NOT NULL
+);
+
+CREATE TABLE Evaluation (
+	patient_id int NOT NULL,
+	doctor_id int NOT NULL,
+	lens_type varchar NOT NULL,
+	ocular_age varchar NOT NULL,
+	tear_rate varchar NOT NULL,
+	evaluation_date date NOT NULL
+);
+
+CREATE TABLE Diagnosis (
+	patient_id int NOT NULL,
+	disease_name varchar NOT NULL,
+	diagnosis_date date
+);
+
+----------------------- ENTITY INTEGRITY CONSTRAINTS ------------------------------
+
+ALTER TABLE Patient
+	ADD CONSTRAINT pk_Patient PRIMARY KEY (person_id);
+
+ALTER TABLE Doctor
+	ADD CONSTRAINT pk_Doctor PRIMARY KEY (person_id);
+	
+ALTER TABLE Lenses
+	ADD CONSTRAINT pk_Lenses PRIMARY KEY (lens_type);
+	
+ALTER TABLE Disease
+	ADD CONSTRAINT pk_Disease PRIMARY KEY (disease_name);
+	
+	
+----------------------- REFERENCIAL INTEGRITY CONSTRAINTS ------------------------------
+
+ALTER TABLE Evaluation
+	ADD CONSTRAINT fkEvaluation_Patient FOREIGN KEY (patient_id) REFERENCES Patient (person_id),
+	ADD CONSTRAINT pkEvaluation_Doctor FOREIGN KEY (doctor_id) REFERENCES Doctor (person_id),
+	ADD CONSTRAINT pkEvaluation_Lenses FOREIGN KEY (lens_type) REFERENCES Lenses (lens_type);
+
+ALTER TABLE Diagnosis
+	ADD CONSTRAINT pkDiagnosis_Patient FOREIGN KEY (patient_Id) REFERENCES Patient(person_Id),
+	ADD CONSTRAINT pkDiagnosis_Disease FOREIGN KEY (disease_name) REFERENCES Disease(disease_name);
+	
+	
+----------------------- ATTRIBUTES CONSTRAINTS ------------------------------
+ALTER TABLE Evaluation
+	ADD CONSTRAINT chkOcular_Range CHECK (ocular_age in ('young', 'presbyopic', 'pre-presbyopic'));

@@ -1,0 +1,39 @@
+--=============
+-- Ligação à BD
+--=============
+\set dataBase db_project
+;
+\set userName postgres
+;
+\connect :dataBase :userName
+;
+--==========================
+
+INSERT INTO Patient (person_id, patient_name, birthdate) VALUES
+(19745312, 'Jorge Alves', '1963-10-05'),
+(13674865, 'Marta Campos', '1980-05-16'),
+(14796258, 'Rui Dias', '1994-07-28');
+
+INSERT INTO Disease(disease_name) VALUES
+('myope'),
+('hypermetrope'),
+('astigmatic');
+
+INSERT INTO Doctor(person_id, birthdate, doctor_name, internal_id) VALUES 
+(14621478, '1972-04-12', 'João Santos', 3),
+(14325746, '1973-09-20', 'Joana Cunha', 8);
+
+INSERT INTO Lenses(lens_type) VALUES
+('none'),
+('soft'),
+('hard');
+
+INSERT INTO Evaluation(patient_id, doctor_id, lens_type, ocular_age, tear_rate, evaluation_date) VALUES
+(19745312, 14621478, 'none', 'presbyopic', 'normal', '2009-08-15'),
+(13674865, 14621478, 'soft', 'pre-presbyopic', 'normal', '2012-06-10'),
+(14796258, 14325746, 'hard', 'young', 'reduced', '2016-03-06');
+
+INSERT INTO Diagnosis(patient_id, disease_name, diagnosis_date) VALUES 
+(19745312, 'myope', '2009-08-15'),
+(13674865, 'hypermetrope', '2012-06-10'),
+(14796258, 'astigmatic', '2016-03-06');
