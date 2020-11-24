@@ -178,13 +178,15 @@ def show_conditionalProbability( dataset, H, E ):
 #_______________________________________________________________________________
 # implementation of some test cases
 def test():
-   #fileName = "./_dataset/adult_sample"
-   #fileName = "../lenses"
-   #fileName = "../lenses - Copy"
-   #fileName = "../lenses_with_missingValues"
-   fileName = "../lenses_fromLecture"
+   #fileName = "../_dataset/adult_sample"
+   #fileName = "../_dataset/lenses"
+   #fileName = "../_dataset/lenses - Copy"
+   #fileName = "../_dataset/lenses_with_missingValues"
+   fileName = "../_dataset/lenses_fromLecture"
+
    dataset = load( fileName )
 
+   """
    print()
    aStr = ">> Percentage of missing values per variable <<"
    my_print( aStr )
@@ -198,7 +200,7 @@ def test():
    my_print( aStr )
    showAll_contingencyMatrix( dataset )
 
-   """
+
    print()
    H = "lenses"  #"capital-gain"
    E = "age" #"y"
@@ -212,7 +214,7 @@ def test():
    aStr = ">> P( %s | %s ) <<" % ( H, E )
    my_print( aStr )
    show_conditionalProbability( dataset, H, E )
-
+   """
    print()
    the_feature = "prescription" #"age"
    aStr = "(1R-approach) >>Error Matrix>> %s & %s <<" % ( the_feature, dataset.domain.class_var )
@@ -234,7 +236,6 @@ def test():
       showStr = "(" + the_feature + ", " + featureValue + ", " + classValue + ") : "
       print( showStr + "{:.3f}".format( errorMin ) )
 
-   """
 
 #_______________________________________________________________________________
 # the main of this module (in case this module is imported from another module)
