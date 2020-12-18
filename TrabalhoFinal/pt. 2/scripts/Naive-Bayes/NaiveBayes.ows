@@ -2,17 +2,15 @@
 <scheme description="" title="Naive-Bayes" version="2.0">
 	<nodes>
 		<node id="0" name="File" position="(193.0, 214.0)" project_name="Orange3" qualified_name="Orange.widgets.data.owfile.OWFile" title="File" version="" />
-		<node id="1" name="Naive Bayes" position="(672.0, 195.0)" project_name="Orange3" qualified_name="Orange.widgets.model.ownaivebayes.OWNaiveBayes" title="Naive Bayes" version="" />
-		<node id="2" name="Test and Score" position="(775.0, 391.0)" project_name="Orange3" qualified_name="Orange.widgets.evaluate.owtestlearners.OWTestLearners" title="Test and Score" version="" />
-		<node id="3" name="Confusion Matrix" position="(1056.0, 315.0)" project_name="Orange3" qualified_name="Orange.widgets.evaluate.owconfusionmatrix.OWConfusionMatrix" title="Confusion Matrix" version="" />
-		<node id="4" name="Predictions" position="(1083.0, 473.0)" project_name="Orange3" qualified_name="Orange.widgets.evaluate.owpredictions.OWPredictions" title="Predictions" version="" />
+		<node id="1" name="Naive Bayes" position="(547.0, 106.0)" project_name="Orange3" qualified_name="Orange.widgets.model.ownaivebayes.OWNaiveBayes" title="Naive Bayes" version="" />
+		<node id="2" name="Test and Score" position="(753.0, 217.0)" project_name="Orange3" qualified_name="Orange.widgets.evaluate.owtestlearners.OWTestLearners" title="Test and Score" version="" />
+		<node id="3" name="Confusion Matrix" position="(988.0, 218.0)" project_name="Orange3" qualified_name="Orange.widgets.evaluate.owconfusionmatrix.OWConfusionMatrix" title="Confusion Matrix" version="" />
 	</nodes>
 	<links>
 		<link enabled="true" id="0" sink_channel="Data" sink_node_id="1" source_channel="Data" source_node_id="0" />
 		<link enabled="true" id="1" sink_channel="Learner" sink_node_id="2" source_channel="Learner" source_node_id="1" />
 		<link enabled="true" id="2" sink_channel="Data" sink_node_id="2" source_channel="Data" source_node_id="0" />
 		<link enabled="true" id="3" sink_channel="Evaluation Results" sink_node_id="3" source_channel="Evaluation Results" source_node_id="2" />
-		<link enabled="true" id="4" sink_channel="Data" sink_node_id="4" source_channel="Predictions" source_node_id="2" />
 	</links>
 	<annotations />
 	<thumbnail />
@@ -56,8 +54,8 @@ WBIAAABtb2RpZmllZF92YXJpYWJsZXNxaV1xanViYXUu
 		<properties format="literal" node_id="1">{'auto_apply': True, 'controlAreaVisible': True, 'learner_name': '', 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x03`\x00\x00\x01\xa9\x00\x00\x04 \x00\x00\x02O\x00\x00\x03h\x00\x00\x01\xc8\x00\x00\x04\x18\x00\x00\x02G\x00\x00\x00\x00\x00\x00\x00\x00\x07\x80', '__version__': 1}</properties>
 		<properties format="pickle" node_id="2">gAN9cQAoWBIAAABjb250cm9sQXJlYVZpc2libGVxAYhYDQAAAGN2X3N0cmF0aWZpZWRxAohYBwAA
 AG5fZm9sZHNxA0sDWAkAAABuX3JlcGVhdHNxBEsDWAoAAAByZXNhbXBsaW5ncQVLA1gLAAAAc2Ft
-cGxlX3NpemVxBksJWBMAAABzYXZlZFdpZGdldEdlb21ldHJ5cQdDMgHZ0MsAAgAAAAACMgAAASgA
-AAVNAAAC0QAAAjoAAAFHAAAFRQAAAskAAAAAAAAAAAeAcQhYEgAAAHNodWZmbGVfc3RyYXRpZmll
+cGxlX3NpemVxBksJWBMAAABzYXZlZFdpZGdldEdlb21ldHJ5cQdDMgHZ0MsAAgAAAAAInv///rcA
+AAu5AAAAYAAACKb///7WAAALsQAAAFgAAAABAAAAAAeAcQhYEgAAAHNodWZmbGVfc3RyYXRpZmll
 ZHEJiFgLAAAAc2NvcmVfdGFibGVxCn1xC1gMAAAAc2hvd25fc2NvcmVzcQxjYnVpbHRpbnMKc2V0
 CnENXXEOKFgCAAAAUjJxD1gCAAAARjFxEFgCAAAAQ0FxEVgDAAAAQVVDcRJYAwAAAE1TRXETWAMA
 AABNQUVxFFgJAAAAUHJlY2lzaW9ucRVYBgAAAFJlY2FsbHEWWAQAAABSTVNFcRdlhXEYUnEZc1gL
@@ -80,16 +78,6 @@ aWRnZXQuc2V0dGluZ3MKQ29udGV4dApxECmBcRF9cRIoWAQAAAB0aW1lcRNHQdf2ov09w2RYBgAA
 AHZhbHVlc3EUfXEVKFgJAAAAc2VsZWN0aW9ucRZjYnVpbHRpbnMKc2V0CnEXXXEYKEsASwGGcRlL
 AUsChnEaSwJLAIZxG0sBSwCGcRxLAEsChnEdSwJLAYZxHmWFcR9ScSBoDUsBdVgHAAAAY2xhc3Nl
 c3EhXXEiKFgEAAAAaGFyZHEjWAQAAABub25lcSRYBAAAAHNvZnRxJWV1YmF1Lg==
-</properties>
-		<properties format="pickle" node_id="4">gAN9cQAoWBIAAABjb250cm9sQXJlYVZpc2libGVxAYhYCQAAAGRyYXdfZGlzdHECiFgMAAAAb3V0
-cHV0X2F0dHJzcQOIWBIAAABvdXRwdXRfcHJlZGljdGlvbnNxBIhYFAAAAG91dHB1dF9wcm9iYWJp
-bGl0aWVzcQWIWBMAAABzYXZlZFdpZGdldEdlb21ldHJ5cQZDMgHZ0MsAAgAAAAACWAAAAPIAAAUo
-AAADBgAAAmAAAAERAAAFIAAAAv4AAAAAAAAAAAeAcQdYCgAAAHNob3dfYXR0cnNxCIhYEAAAAHNo
-b3dfcHJlZGljdGlvbnNxCYhYEgAAAHNob3dfcHJvYmFiaWxpdGllc3EKiFgLAAAAc2NvcmVfdGFi
-bGVxC31xDFgMAAAAc2hvd25fc2NvcmVzcQ1jYnVpbHRpbnMKc2V0CnEOXXEPKFgCAAAAUjJxEFgC
-AAAARjFxEVgCAAAAQ0FxElgDAAAAQVVDcRNYAwAAAE1TRXEUWAMAAABNQUVxFVgJAAAAUHJlY2lz
-aW9ucRZYBgAAAFJlY2FsbHEXWAQAAABSTVNFcRhlhXEZUnEac1gLAAAAX192ZXJzaW9uX19xG0sB
-WBAAAABjb250ZXh0X3NldHRpbmdzcRxdcR11Lg==
 </properties>
 	</node_properties>
 	<session_state>
