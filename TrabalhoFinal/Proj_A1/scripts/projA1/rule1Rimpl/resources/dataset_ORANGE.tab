@@ -1,0 +1,6 @@
+ocular_age	tear_rate	disease_name	lens_type
+discrete	discrete	discrete	discrete
+""	""	""	class
+pre-presbyopic	normal	hypermetrope	soft
+presbyopic	normal	myope	none
+young	reduced	astigmatic	hard

@@ -1,0 +1,66 @@
+-------------------------------------------------------
+---------------- View DROP SCRIPTS  -------------------
+-------------------------------------------------------
+
+DROP VIEW IF EXISTS project_dataset;
+DROP VIEW IF EXISTS V0_class;
+DROP VIEW IF EXISTS V0;
+
+-------------------------------------------------------
+------------- Dataset data collection -----------------
+-------------------------------------------------------
+
+--DROP VIEW IF EXISTS V0;
+
+
+CREATE VIEW v0(ocular_age, tear_rate, disease_name,lens_type) AS
+	SELECT 
+		ocular_age,
+		tear_rate,
+		disease_name,
+		lens_type
+	FROM Evaluation as table1
+	LEFT JOIN Diagnosis as table2 ON table2.patient_id = table1.patient_id;
+	
+--SELECT * FROM v0;
+
+-------------------------------------------------------
+------------ Dataset class definition -----------------
+-------------------------------------------------------
+
+--DROP VIEW IF EXISTS V0_class;
+
+CREATE View V0_class AS
+   	    SELECT 
+			varchar '' AS ocular_age,
+			varchar '' AS tear_rate,
+			varchar '' AS disease_name,
+			varchar 'class' AS lens_type;
+			
+--SELECT * FROM V0_class;
+
+-------------------------------------------------------
+------------------ Project dataset---------------------
+-------------------------------------------------------
+
+--DROP VIEW IF EXISTS project_dataset;
+	
+CREATE VIEW project_dataset (ocular_age, tear_rate, disease_name, lens_type) AS
+		SELECT ocular_age, tear_rate, disease_name,lens_type FROM (
+			SELECT ocular_age, tear_rate, disease_name,lens_type, 2 AS SEQ FROM v0_class
+		UNION
+			SELECT varchar 'discrete' AS ocular_age,
+				varchar 'discrete' AS tear_rate,
+				varchar 'discrete' AS disease_name,
+				varchar 'discrete' AS lens_type,
+				1 AS SEQ
+		UNION
+			SELECT CAST(ocular_age AS VARCHAR) ,
+					CAST(tear_rate AS VARCHAR),
+					CAST(disease_name AS VARCHAR),
+					CAST(lens_type AS VARCHAR),
+					3 AS SEQ FROM V0
+		ORDER BY SEQ) 
+	AS editedView;
+	
+--SELECT * FROM project_dataset
